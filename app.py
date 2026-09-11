@@ -21,7 +21,7 @@ h1, h2, h3, h4, .st-emotion-cache-10trblm {
     color: #DC143C !important; 
     font-family: 'Verdana', sans-serif; 
     font-weight: 900; 
-    text-shadow: 0px 0px 10px rgba(220, 20, 60, 0.4); /* Glowing text effect */
+    text-shadow: 0px 0px 10px rgba(220, 20, 60, 0.4); 
 }
 
 /* Funky Curvy Dividers */
@@ -32,36 +32,56 @@ hr { border-top: 3px dashed #DC143C !important; margin: 25px 0; border-radius: 1
     background-color: #000000; 
     border: 3px solid #DC143C; 
     padding: 20px; 
-    border-radius: 30px; /* CURVY */
-    box-shadow: 0px 5px 20px rgba(220, 20, 60, 0.3); /* Red glow */
+    border-radius: 30px; 
+    box-shadow: 0px 5px 20px rgba(220, 20, 60, 0.3); 
 }
 
-/* 4. Curvy Information Boxes */
-div.stInfo, div.stWarning { 
-    background-color: #090909; 
-    color: #f4f4f4; 
-    border: 2px solid #DC143C; 
-    border-radius: 25px; /* CURVY */
-    box-shadow: 0px 4px 15px rgba(220, 20, 60, 0.2);
+/* 4. OVERRIDE STREAMLIT BLUE: Crimson Information Boxes */
+[data-testid="stAlert"] { 
+    background-color: #4a0404 !important; /* Deep Crimson Red Background */
+    border: 2px solid #DC143C !important; 
+    border-radius: 25px !important; 
+    box-shadow: 0px 4px 15px rgba(220, 20, 60, 0.5) !important;
+    color: #ffffff !important;
 }
-p, li, .stMarkdown, label { color: #e0e0e0 !important; font-size: 16px; }
+[data-testid="stAlert"] p { color: #ffffff !important; font-size: 16px; }
 
 /* 5. Mobile-Friendly Curvy Selectboxes */
 div[data-baseweb="select"] > div { 
     background-color: #000000; 
     border: 2px solid #DC143C; 
     color: white; 
-    border-radius: 25px; /* CURVY */
-}
-
-/* 6. Curvy Expander Tabs */
-.streamlit-expanderHeader { 
-    background-color: #000000; 
-    color: #DC143C !important; 
-    border: 2px solid #DC143C; 
     border-radius: 25px; 
 }
+
+/* 6. MASSIVE Curvy Expander Tabs (Advanced Analysis) */
+div[data-testid="stExpander"] details summary { 
+    background-color: #000000; 
+    color: #DC143C !important; 
+    border: 2px solid #DC143C !important; 
+    border-radius: 25px !important; 
+    font-size: 22px !important; /* BIGGER TEXT */
+    padding: 20px !important;   /* BIGGER BUTTON */
+}
 div[data-testid="stExpander"] { border-radius: 25px; overflow: hidden; }
+
+/* 7. MASSIVE Download Button */
+button[data-testid="baseButton-secondary"] {
+    font-size: 22px !important; /* BIGGER TEXT */
+    padding: 25px 40px !important; /* BIGGER BUTTON */
+    border-radius: 35px !important;
+    background-color: #DC143C !important;
+    color: #ffffff !important;
+    border: 2px solid #DC143C !important;
+    width: 100%; /* Makes button stretch across screen */
+    box-shadow: 0px 5px 20px rgba(220, 20, 60, 0.6) !important;
+    font-weight: bold !important;
+}
+button[data-testid="baseButton-secondary"]:hover {
+    background-color: #000000 !important;
+    color: #DC143C !important;
+    box-shadow: 0px 5px 25px rgba(220, 20, 60, 1) !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -259,5 +279,4 @@ if st.session_state.first_load:
     </div>
     """, unsafe_allow_html=True)
     
-    # Mark it as shown so it doesn't interrupt the user again while they click around
     st.session_state.first_load = False
